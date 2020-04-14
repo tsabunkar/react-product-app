@@ -6,9 +6,11 @@ import React from 'react';
 function Address(props) {
   return (
     <div>
+      <hr />
       <p>Address</p>
       <p>City: {props.address.city}</p>
       <p>State: {props.address.state}</p>
+      <hr />
     </div>
   );
 }
