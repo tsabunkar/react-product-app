@@ -95,3 +95,85 @@ NOTE: BEST React js Developer is -> who create the Virtual DOM Efficient and mak
 https://create-react-app.dev/
 
 npx create-react-app react-product-app
+
+---
+
+# project structure
+
+- package.json have dependency -> react (core), react-dom(core), react-scripts (react create app lib)
+- public
+  - static html, static images, etc contains all assets of your projects
+  - index.html -> First page to load
+  - Your first Html Template file should be here
+- src -> where your write ur src code.
+  - index.js -> First file to be loaded into browser
+  - All Your JS Files Should be here (JS Files includes your JSX)
+- Run above code :
+  - `<script src="/static/js/bundle.js"></script><script src="/static/js/0.chunk.js"></script><script src="/static/js/main.chunk.js"></script></body>`
+  - Bundle, chunk files, main.chunk.js - All library codes, webpack loader
+
+---
+
+- create-react-app have some conventions ==> Structure, naming conventions
+- JSX- Javascript + XML
+- this code will crash JS Compiler
+- Babel transpiler XML into JS Code
+
+---
+
+# How Babel Transiple JSX Files
+
+```let title = 'React'
+
+let h1 = <h1>Welcome</h1>
+```
+
+After converting to ES5
+
+````
+"use strict";
+
+var title = 'React'; // JSX- Javascript + XML
+// this code will crash JS Compiler
+// Babel transpiler XML into JS Code
+
+var h1 = /*#__PURE__*/React.createElement("h1", null, "Welcome");```
+````
+
+---
+
+- https://babeljs.io/repl/
+- App.js <- Component Should have Captial Case [File naming convention]
+- folder components <- lower case naming convention
+
+---
+
+# Check this in Babel - Why function should have Upper Case
+
+```
+function Header() { return <h1>H1</h1> }
+
+function footer() { return <h1>footer</h1> }
+
+let c = <Header />
+
+let k = <footer />
+```
+
+---
+
+- In Angular Interpolation, React does not have one way or two way binding it only have expressions.
+
+---
+
+# Props / Properties
+
+- To pass the data from parent to child component
+- year and company can be called - attributes/properties
+- In react convention this attribute/properties is called props
+- To immediate child we can pass the data using props
+- value can be string, object, array, any data-type..
+
+  <Footer year={2020} company="Airbus">
+
+---

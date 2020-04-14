@@ -1,0 +1,31 @@
+// First file to be loaded into browser
+import ReactDOM from 'react-dom'; // bostrap file <- used only onces
+import React from 'react';
+
+console.log('Starting React');
+
+// Patch the Real Dom
+// Runs the event loop, event handling - internally
+// ReactDOM.render(v.dom, real dom)
+// takes v.dom ==patch==> real dom (uni direction)
+
+// ! creating Virtual DOM element <== NOT a COMPONENT
+// ! COMPONENT -> Group of virtual dom elements (function compo, class compo)
+// const h1 = React.createElement('h1', { id: 'myheader' }, 'Welcome');
+
+// !smaller functional component
+function App() {
+  // App Component
+  // every function component should return v.dom
+  // if this function called, you will be creating v.dom
+  return React.createElement('h1', { id: 'myheader' }, 'Welcome React');
+}
+
+// !Real Dom
+const root = document.getElementById('root');
+
+// ReactDOM.render(h1, root);
+
+// bootstrap react into browser
+ReactDOM.render(React.createElement(App), root);
+// *createElement -> Accept function compo, class compo, or html elements
