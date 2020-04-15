@@ -177,3 +177,6 @@ let k = <footer />
   <Footer year={2020} company="Airbus">
 
 ---
+
+- props are txed from parent to child compo, props value should not modifiy the parent data
+- If child want to modifiy the data is called -> State

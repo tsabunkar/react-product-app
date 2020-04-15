@@ -25,7 +25,7 @@ function App() {
       {/* <h2>React App</h2> */}
       <Header />
       <Counter startValue={100} />
-      <Counter />
+      {/* <Counter /> */}
       <Home />
       <Footer
         year={2020}
