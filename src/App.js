@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Counter from './components/Counter';
+import Calc from './components/Calc';
 
 // this function is called by React
 // create v.dom and return v.dom
@@ -24,6 +25,7 @@ function App() {
     <div>
       {/* <h2>React App</h2> */}
       <Header />
+      <Calc />
       <Counter startValue={100} />
       {/* <Counter /> */}
       <Home />

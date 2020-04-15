@@ -180,3 +180,19 @@ let k = <footer />
 
 - props are txed from parent to child compo, props value should not modifiy the parent data
 - If child want to modifiy the data is called -> State
+- As React Developer: We need to work VDOM, managing the VDOM very carefully
+
+---
+
+# BEST REACT DEVELOPER
+
+- stop calling render unnessarily
+- be conservative with render function calls
+- when render called ?
+  - create vdoms, a lot of js objects created
+  - React does Diffing, deep compare the tree, that component render and also child render
+  - patch
+  - Garbage collector should track objects in memory
+  - release the memory
+
+---
