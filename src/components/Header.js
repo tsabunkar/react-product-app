@@ -7,6 +7,7 @@ import React from 'react';
 // !Function name should upper case for Component function
 //  !Function name is not caps --> then JSX issue/convention
 function Header() {
+  console.log('Header render called');
   return (
     <div>
       <h2>React App</h2>

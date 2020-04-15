@@ -18,32 +18,67 @@ import Calc from './components/Calc';
 // ! App -> Parent Comp, Header, Footer -> Child compo of App
 //! we can put class/functional component into class/functional Component
 
-function App() {
-  // Alaways will be called immutable
-  console.log('App Render');
-  return (
-    <div>
-      {/* <h2>React App</h2> */}
-      <Header />
-      <Calc />
-      <Counter startValue={100} />
-      {/* <Counter /> */}
-      <Home />
-      <Footer
-        year={2020}
-        // year={'2020'}
-        company="Airbus"
-        isOpen={true}
-        isVal
-        branches={['IN', 'USA', 'UK']}
-        address={{ city: 'Bangalore', state: 'KA', pincode: 500026 }}
-        addresses={{
-          headOffice: { city: 'Bangalore', state: 'KA' },
-          branchOffice: { city: 'Bangalore', state: 'KA' },
-        }}
-      />
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      startValue: 0,
+    };
+  }
+
+  // !PASSING Data from PARENT Comp to CHILD Comp
+  // define function in the parent component
+  // pass the function as a callback through props to child component
+  reset = () => {
+    console.log('reset called by child');
+
+    this.setState({
+      startValue: 0,
+    });
+  };
+
+  submit = (value) => {
+    console.log('called by child ', value);
+    this.setState({
+      startValue: value,
+    });
+  };
+
+  render() {
+    // Alaways will be called immutable
+    console.log('App Render');
+    return (
+      <div>
+        {/* <h2>React App</h2> */}
+        <Header />
+        <p>App Parent startValue {this.state.startValue}</p>
+
+        <Counter
+          startValue={this.state.startValue}
+          reset={this.reset}
+          submit={this.submit}
+        />
+
+        {/* <Counter startValue={this.state.startValue} /> */}
+        <Calc />
+        {/* <Counter /> */}
+        <Home />
+        <Footer
+          year={2020}
+          // year={'2020'}
+          company="Airbus"
+          isOpen={true}
+          isVal
+          branches={['IN', 'USA', 'UK']}
+          address={{ city: 'Bangalore', state: 'KA', pincode: 500026 }}
+          addresses={{
+            headOffice: { city: 'Bangalore', state: 'KA' },
+            branchOffice: { city: 'Bangalore', state: 'KA' },
+          }}
+        />
+      </div>
+    );
+  }
 }
 
 // year, company, ... ==> All are props/property

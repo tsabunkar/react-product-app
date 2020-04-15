@@ -196,3 +196,19 @@ let k = <footer />
   - release the memory
 
 ---
+
+# When react calls RENDER function, when react Merge the state [func, {}]
+
+- when react calls the render function, React maintain a event loop/queue, FIFO
+- all events are added to queue [click, bubble click]
+- [event1, event2,...... event1000]
+- React will batch the event (based on requestANimationFramework, frame Rate, etc..)
+- batch [event1, event2]
+  - each event has eventHandler [increment, decrement, reset, incrA,....]
+  - it calls the event handlers
+    - event handlers call setState... --> batch of states to be merger
+- end of the batch/when no envent in the queue, After executing all -> React will:
+  - merge the state, set to current state [this.state become active]
+  - calls render function
+
+---

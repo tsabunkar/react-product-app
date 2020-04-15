@@ -113,6 +113,14 @@ class Counter extends React.Component {
         render is assoicated with event loop */}
         <button onClick={this.increment}>Increment</button>
         <button onClick={this.decrement}>Decrement</button>
+
+        {/* 
+        Passing the data from Parent Comp (App) to Child Comp (Counter):
+        In child Component calling the callback functions provided parent compo */}
+        <button onClick={() => this.props.submit(this.state.counter)}>
+          submit to parent
+        </button>
+        <button onClick={this.props.reset}>Reset to parent</button>
       </div>
     );
   }

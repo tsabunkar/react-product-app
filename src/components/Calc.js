@@ -76,7 +76,7 @@ class Calc extends Component {
       };
     });
 
-    // result of prev function is passed as input here
+    // result of prev function setState is passed as input here
     // end result shall be merged with current state -> To become new state
     this.setState((prevState) => {
       console.log('Second callback setState', prevState);
@@ -86,6 +86,30 @@ class Calc extends Component {
     });
 
     console.log('IncrementB After', this.state);
+  };
+
+  // the first argument is an event object
+  // preventDefault, stopPropogation -> Stop event bubble up
+  // !synthetic event, event pool, react is using the event object called proxy pattern
+  reset = (event) => {
+    console.log('Reset ', event);
+
+    this.setState({
+      a: 0,
+      b: 0,
+      result: 0,
+    });
+
+    console.trace(); // not use in cross browser, print callstatck
+  };
+
+  divClick = (event) => {
+    console.log('divClicked ', event);
+    console.trace();
+
+    this.setState({
+      flag: true,
+    });
   };
 
   render() {
@@ -100,6 +124,9 @@ class Calc extends Component {
         <p>Result: {this.state.result}</p>
         <button onClick={this.incrementA}>Incr A</button>
         <button onClick={this.incrementB}>Incr B</button>
+        <div onClick={this.divClick}>
+          <button onClick={this.reset}>Reset</button>
+        </div>
       </div>
     );
   }
